@@ -28,6 +28,6 @@ class DateParser {
 
   private Date parse(int year, int month, int day) {
     logger.info("Creating a new Date object from parsed values");
-    return new Date(year, month, day);
+    return new Date(year - 1900, month - 1, day);
   }
 }
