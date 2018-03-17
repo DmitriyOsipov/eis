@@ -4,6 +4,8 @@ import com.processing.DateProcessor;
 
 import org.apache.log4j.Logger;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -15,25 +17,28 @@ public class DateService {
 
     logger.info("We are in layer02_service module now. Input data:" + Arrays.toString(data));
 
-    DateFormatChecker validator = new DateFormatChecker();
+    InputChecker validator = new InputChecker();
     validator.validateInput(data);
-    validator.validateForFormat(data[0]);
 
-    String[] splitted = data[0].split("-");
-    if (splitted.length != 3) {
-      throw new IllegalArgumentException();
-    }
-    String result = this.processOkFormat(splitted);
+    String result = this.runDateProcessor(data[0]);
 
     logger.info("Result of layer02_service is:" + result);
 
     return result;
   }
 
-  private String processOkFormat(String[] parts) {
-    DateParser parser = new DateParser();
+  private String runDateProcessor(String data) {
     DateProcessor dateProcessor = new DateProcessor();
-    Date date = parser.getDate(parts);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("d-M-y");
+    dateFormat.setLenient(false);
+
+    Date date;
+    try {
+      date = dateFormat.parse(data);
+    } catch (ParseException parseExc) {
+      throw new IllegalArgumentException();
+    }
+
     return dateProcessor.getDayName(date);
   }
 }
