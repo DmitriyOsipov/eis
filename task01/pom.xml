@@ -7,7 +7,11 @@
   <groupId>com.eis.tasks</groupId>
   <artifactId>task01</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>${task01.version}</version>
+
+  <properties>
+    <task01.version>1.0-SNAPSHOT</task01.version>
+  </properties>
 
   <modules>
     <module>layer01_ui</module>
