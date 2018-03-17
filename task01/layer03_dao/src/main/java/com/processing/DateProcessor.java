@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 public class DateProcessor {
 
-  final static Logger logger = Logger.getLogger(DateProcessor.class);
+  private final static Logger logger = Logger.getLogger(DateProcessor.class);
 
   public String getDayName(Date date) {
 
@@ -23,23 +23,9 @@ public class DateProcessor {
   }
 
   private String chooseDayName(int number) {
-    switch (number) {
-      case 1:
-        return "Sunday";
-      case 2:
-        return "Monday";
-      case 3:
-        return "Tuesday";
-      case 4:
-        return "Wednesday";
-      case 5:
-        return "Thursday";
-      case 6:
-        return "Friday";
-      case 7:
-        return "Saturday";
-      default:
-        return "Wrong day of week number";
-    }
+    String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+        "Saturday"};
+    return daysOfWeek[number - 1];
+
   }
 }
