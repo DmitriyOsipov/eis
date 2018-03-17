@@ -7,8 +7,9 @@ class DateFormatChecker {
   private final static Logger logger = Logger.getLogger(DateFormatChecker.class);
 
   boolean validate(String input) {
-    logger.info("Checking input data for the date format by regex \"\\\\d{2}-\\\\d{2}-\\\\d{4}\"");
-    return (input.matches("\\d{2}-\\d{2}-\\d{4}"));
+    logger.info(
+        "Checking input data for the date format by regex \"\\\\d{1,2}-\\\\d{1,2}-\\\\d{1,4}\"");
+    return (input.matches("\\d{1,2}-\\d{1,2}-\\d{1,4}"));
   }
 
   boolean validate(int year, int month, int day) {
