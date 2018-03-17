@@ -1,7 +1,8 @@
 package com.services;
 
-import java.util.Date;
 import org.apache.log4j.Logger;
+
+import java.util.Date;
 
 class DateParser {
 
