@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 
 class DateParser {
 
-  final static Logger logger = Logger.getLogger(DateParser.class);
+  private final static Logger logger = Logger.getLogger(DateParser.class);
 
   Date getDate(String[] parts) {
     logger.info("Parsing splitted string to the Date object");

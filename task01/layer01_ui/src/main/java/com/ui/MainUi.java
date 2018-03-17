@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 public class MainUi {
 
-  final static Logger logger = Logger.getLogger(MainUi.class);
+  private final static Logger logger = Logger.getLogger(MainUi.class);
 
   public static void main(String[] args) {
     logger.info("We are in the layer01_ui module.");
