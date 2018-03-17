@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 class DateFormatChecker {
 
-  final static Logger logger = Logger.getLogger(DateFormatChecker.class);
+  private final static Logger logger = Logger.getLogger(DateFormatChecker.class);
 
   boolean validate(String input) {
     logger.info("Checking input data for the date format by regex \"\\\\d{2}-\\\\d{2}-\\\\d{4}\"");
@@ -17,9 +17,9 @@ class DateFormatChecker {
     int[] months30 = {4, 6, 9, 11};
 
     return (year > 0)
-        && ((month == 2 && day == ((year % 4 == 0) ? 29 : 28))
-        || (contains(months30, month) && day == 30)
-        || (contains(months31, month) || day == 30));
+        && ((month == 2 && day <= ((year % 4 == 0) ? 29 : 28))
+        || (contains(months30, month) && day <= 30)
+        || (contains(months31, month) && day <= 31));
   }
 
   private boolean contains(int[] array, int seek) {
