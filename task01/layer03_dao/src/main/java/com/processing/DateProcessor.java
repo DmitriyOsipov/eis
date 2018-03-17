@@ -11,16 +11,15 @@ public class DateProcessor {
 
   public String getDayName(Date date) {
 
-    logger.info("We are in layer03_dao now. Income data:");
-    logger.info(date);
-    logger.info("Getting day of the week title.");
+    logger.info("We are in layer03_dao now. Income data: " + date);
 
     Calendar calendar = Calendar.getInstance();
     calendar.setTime(date);
+    String result = chooseDayName(calendar.get(Calendar.DAY_OF_WEEK));
 
-    logger.info("Returning");
+    logger.info("Result of layer03_dao is: " + result);
 
-    return chooseDayName(calendar.get(Calendar.DAY_OF_WEEK));
+    return result;
   }
 
   private String chooseDayName(int number) {
